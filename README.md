@@ -28,6 +28,18 @@ Unit tests (`⌘U`) cover the GI/GL math, the GI and blood-pressure matching, Op
 
 Name search works without setup through the shared `DEMO_KEY`, which allows only a few requests per hour. You can get a free personal key at <https://fdc.nal.usda.gov/api-key-signup> and paste it under **Add by Name → USDA API key**.
 
+## Web app (GitHub Pages)
+
+`docs/` is a version of NutriCard that runs in the browser. It needs no build step and has the same features: swipeable cards, search, 1-serving nutrition labels, GI and GL with the University of Sydney source, heart indicators with blood-pressure notes, adding foods by UPC (camera scanner or typed) or by name, and photos on white backgrounds. Foods are saved on the device in IndexedDB.
+
+**Publish:** go to the repo's *Settings → Pages*. Under *Build and deployment*, choose *Deploy from a branch*, pick the branch, select the `/docs` folder and click *Save*. The site appears at `https://<owner>.github.io/<repo>/`. GitHub Pages on a private repo needs a paid GitHub plan.
+
+**Install on iPhone:** open the site in Safari, tap *Share → Add to Home Screen*, and it opens full screen like an app. The camera needs HTTPS, which GitHub Pages provides.
+
+**Run locally:** `cd docs && python3 -m http.server 8000`, then open <http://localhost:8000>. Logic tests: `node --test tests-web/logic.test.mjs`.
+
+**Web version differences:** barcodes are read by the browser's built-in `BarcodeDetector` or by ZXing (on iPhone Safari). Backgrounds are made white with a canvas flood-fill, not Apple's Vision cut-out, so photos with busy backgrounds are centered on white without being cut out. The app looks for online photos that were already shot on white (Wikimedia Commons) and prefers those.
+
 ## Project layout
 
 ```

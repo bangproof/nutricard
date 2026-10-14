@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NutriCard</title>
+  <meta name="description" content="Swipeable nutrition cards with glycemic index, glycemic load and blood-pressure notes.">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="NutriCard">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <button id="menuBtn" class="icon-btn" aria-label="Card options">⋯</button>
+    <h1>NutriCard</h1>
+    <button id="addBtn" class="icon-btn add" aria-label="Add food">+</button>
+  </header>
+  <div class="searchbar">
+    <input id="search" type="search" placeholder="Search foods" autocomplete="off" aria-label="Search foods">
+  </div>
+
+  <main id="deck" class="deck" aria-live="polite"></main>
+
+  <nav id="pager" class="pager">
+    <button id="prev" aria-label="Previous card">‹</button>
+    <span id="counter"></span>
+    <button id="next" aria-label="Next card">›</button>
+  </nav>
+
+  <div id="sheet" class="sheet" hidden role="dialog" aria-modal="true"></div>
+  <div id="actions" class="actions" hidden></div>
+  <div id="toast" class="toast" hidden role="status"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
